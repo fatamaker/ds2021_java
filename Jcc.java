@@ -33,8 +33,16 @@ public class Jcc {
        System.out.println("Édition des JCC de " + annee + " -le total des vente des Billets :");
        float s = 0.0f;
        for (int i=0;i<nbF;i++){
-        s+=competition[i].totalVenteBillets();
-       }
+         if (competition[i] instanceof Documentaire) {
+           Documentaire doc= (Documentaire) competition[i] ;
+            s += doc.totalVenteBillets();
+        } else {
+            s += competition[i].totalVenteBillets();
+        }
+        
+    }
+
+       
        System.out.println("Le total des ventes de billets est : " + s + " DT");
        return s;
     
